@@ -84,7 +84,7 @@ const renderIncomeUI = () => {
 };
 
 function renderIncomeSumUI() {
-  incomesValueDOM.innerHTML = sum(state.incomes);
+  incomesValueDOM.innerHTML = sum(state.incomes).toFixed(2);
 }
 
 function sum(arr) {
@@ -215,7 +215,7 @@ const renderExpenseUI = () => {
 };
 
 function renderExpenseSumUI() {
-  expensesValueDOM.innerHTML = sum(state.expenses);
+  expensesValueDOM.innerHTML = sum(state.expenses).toFixed(2);
 }
 
 expenseSubmitDOM.addEventListener("click", addNewExpenseItem);
@@ -289,11 +289,15 @@ function renderBudget() {
   let expenseSum = sum(state.expenses);
   let budgetSum = incomeSum - expenseSum;
   if (budgetSum > 0) {
-    return (budgetValueDOM.innerHTML = `You can still spend ${budgetSum}`);
+    return (budgetValueDOM.innerHTML = `You can still spend ${budgetSum.toFixed(
+      2
+    )}`);
   } else if (budgetSum < 0) {
-    return (budgetValueDOM.innerHTML = `Your balance is negative. You are missing ${budgetSum}`);
+    return (budgetValueDOM.innerHTML = `Your balance is negative. You are missing ${budgetSum.toFixed(
+      2
+    )}`);
   } else {
-    budgetValueDOM.innerHTML = `Your balance is ${budgetSum}`;
+    budgetValueDOM.innerHTML = `Your balance is ${budgetSum.toFixed(2)}`;
   }
 }
 

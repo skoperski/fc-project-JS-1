@@ -34,7 +34,7 @@ const renderIncomeUI = () => {
 
   // create new incomings
   state.incomes.forEach((item) => {
-    var liInnerHTML = null;
+    let liInnerHTML = null;
 
     if (item.isEditable) {
       liInnerHTML = `
@@ -98,7 +98,7 @@ incomeSubmitDOM.addEventListener("click", addNewIncomeItem);
 function addNewIncomeItem(e) {
   e.preventDefault();
 
-  var newItem = {
+  const newItem = {
     id: state.nextIncomeId,
     name: incomeTitleDOM.value,
     amount: Number(incomeValueDOM.value),
@@ -118,7 +118,7 @@ function addNewIncomeItem(e) {
 // MAKE AN ITEM EDITABLE OR NOT-EDITABLE
 // (switch/toggle isEditable property)
 function toggleIncomeItemEditable(e) {
-  var id = Number(e.target.dataset.id); //number
+  const id = Number(e.target.dataset.id); //number
   state.incomes = state.incomes.map((i) =>
     i.id === id ? { ...i, isEditable: !i.isEditable } : i
   );
@@ -128,10 +128,10 @@ function toggleIncomeItemEditable(e) {
 
 // CONFIRM EDITING AN ITEM
 function confirmIncomeEditItem(e) {
-  var id = Number(e.target.dataset.id);
-  var spans = document.querySelectorAll(`div.item span[data-id="${id}"]`); //array of <span>
-  var newName = spans[0].innerText; //string
-  var newAmount = Number(spans[1].innerText); //number
+  const id = Number(e.target.dataset.id);
+  const spans = document.querySelectorAll(`div.item span[data-id="${id}"]`); //array of <span>
+  const newName = spans[0].innerText; //string
+  const newAmount = Number(spans[1].innerText); //number
   state.incomes = state.incomes.map((i) =>
     i.id === id
       ? { ...i, name: newName, amount: newAmount, isEditable: false }
@@ -165,7 +165,7 @@ const renderExpenseUI = () => {
 
   // create new expenses
   state.expenses.forEach((item) => {
-    var liInnerHTML = null;
+    let liInnerHTML = null;
 
     if (item.isEditable) {
       liInnerHTML = `
@@ -223,7 +223,7 @@ expenseSubmitDOM.addEventListener("click", addNewExpenseItem);
 function addNewExpenseItem(e) {
   e.preventDefault();
 
-  var newItem = {
+  const newItem = {
     id: state.nextExpenseId,
     name: expenseTitleDOM.value,
     amount: Number(expenseValueDOM.value),
@@ -244,7 +244,7 @@ function addNewExpenseItem(e) {
 // MAKE AN ITEM EDITABLE OR NOT-EDITABLE
 // (switch/toggle isEditable property)
 function toggleExpenseItemEditable(e) {
-  var id = Number(e.target.dataset.id); //number
+  const id = Number(e.target.dataset.id); //number
   state.expenses = state.expenses.map((i) =>
     i.id === id ? { ...i, isEditable: !i.isEditable } : i
   );
@@ -254,10 +254,10 @@ function toggleExpenseItemEditable(e) {
 
 // CONFIRM EDITING AN ITEM
 function confirmExpenseEditItem(e) {
-  var id = Number(e.target.dataset.id);
-  var spans = document.querySelectorAll(`div.item span[data-id="${id}"]`); //array of <span>
-  var newName = spans[0].innerText; //string
-  var newAmount = Number(spans[1].innerText); //number
+  const id = Number(e.target.dataset.id);
+  const spans = document.querySelectorAll(`div.item span[data-id="${id}"]`); //array of <span>
+  const newName = spans[0].innerText; //string
+  const newAmount = Number(spans[1].innerText); //number
   state.expenses = state.expenses.map((i) =>
     i.id === id
       ? { ...i, name: newName, amount: newAmount, isEditable: false }

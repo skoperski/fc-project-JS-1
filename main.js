@@ -55,29 +55,29 @@ const renderIncomeUI = () => {
         </div>
       `;
     }
-    let newLi = document.createElement("li");
+    const newLi = document.createElement("li");
     newLi.dataset.name = item.name;
     newLi.innerHTML = liInnerHTML;
     newLi.classList.add("flex", "flex--space-between", "budget__list__item");
     incomesListDOM.append(newLi);
   });
 
-  let incomeEdit = document.querySelectorAll("#incomeEdit");
+  const incomeEdit = document.querySelectorAll("#incomeEdit");
   incomeEdit.forEach((i) =>
     i.addEventListener("click", toggleIncomeItemEditable)
   );
 
-  let incomeConfirm = document.querySelectorAll("#incomeConfirm");
+  const incomeConfirm = document.querySelectorAll("#incomeConfirm");
   incomeConfirm.forEach((i) => {
     i.addEventListener("click", confirmIncomeEditItem);
   });
 
-  let incomeEditCancel = document.querySelectorAll("#incomeEditCancel");
+  const incomeEditCancel = document.querySelectorAll("#incomeEditCancel");
   incomeEditCancel.forEach((i) => {
     i.addEventListener("click", toggleIncomeItemEditable);
   });
 
-  let incomeRemove = document.querySelectorAll("#incomeRemove");
+  const incomeRemove = document.querySelectorAll("#incomeRemove");
   incomeRemove.forEach((i) => {
     i.addEventListener("click", removeIncomeItem);
   });
@@ -186,29 +186,29 @@ const renderExpenseUI = () => {
         </div>
       `;
     }
-    let newLi = document.createElement("li");
+    const newLi = document.createElement("li");
     newLi.dataset.name = item.name;
     newLi.innerHTML = liInnerHTML;
     newLi.classList.add("flex", "flex--space-between", "budget__list__item");
     expensesListDOM.append(newLi);
   });
 
-  let expenseEdit = document.querySelectorAll("#expenseEdit");
+  const expenseEdit = document.querySelectorAll("#expenseEdit");
   expenseEdit.forEach((i) =>
     i.addEventListener("click", toggleExpenseItemEditable)
   );
 
-  let expenseConfirm = document.querySelectorAll("#expenseConfirm");
+  const expenseConfirm = document.querySelectorAll("#expenseConfirm");
   expenseConfirm.forEach((i) => {
     i.addEventListener("click", confirmExpenseEditItem);
   });
 
-  let expenseEditCancel = document.querySelectorAll("#expenseEditCancel");
+  const expenseEditCancel = document.querySelectorAll("#expenseEditCancel");
   expenseEditCancel.forEach((i) => {
     i.addEventListener("click", toggleExpenseItemEditable);
   });
 
-  let expenseRemove = document.querySelectorAll("#expenseRemove");
+  const expenseRemove = document.querySelectorAll("#expenseRemove");
   expenseRemove.forEach((i) => {
     i.addEventListener("click", removeExpenseItem);
   });
@@ -285,9 +285,9 @@ function resetNewForm(name, amount) {
 
 // UPDATE BUDGET
 function renderBudget() {
-  let incomeSum = sum(state.incomes);
-  let expenseSum = sum(state.expenses);
-  let budgetSum = incomeSum - expenseSum;
+  const incomeSum = sum(state.incomes);
+  const expenseSum = sum(state.expenses);
+  const budgetSum = incomeSum - expenseSum;
   if (budgetSum > 0) {
     return (budgetValueDOM.innerHTML = `You can still spend ${budgetSum.toFixed(
       2
